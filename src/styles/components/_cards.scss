@@ -1,0 +1,76 @@
+.movies-grid {
+    @include grid-layout;
+    padding: 2rem 0;
+  }
+  
+  .movie-card {
+    background: var(--card-bg);
+    border-radius: $border-radius;
+    overflow: hidden;
+    transition: transform $transition-speed ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    &:hover {
+      transform: translateY(-5px);
+    }
+  
+    .card-image {
+      position: relative;
+      padding-top: 150%;
+      overflow: hidden;
+  
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-speed ease;
+      }
+    }
+  
+    .card-content {
+      padding: 1rem;
+  
+      .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+  
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        .card-year {
+          font-size: 0.9rem;
+          color: rgba(var(--text), 0.8);
+        }
+  
+        .favorite-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.5rem;
+          @include flex-center;
+  
+          .star-icon {
+            font-size: 1.2rem;
+            color: rgba(var(--text), 0.5);
+            transition: all $transition-speed ease;
+          }
+  
+          &.active .star-icon {
+            color: $accent-color;
+            transform: scale(1.2);
+          }
+  
+          &:hover .star-icon {
+            color: $accent-color;
+          }
+        }
+      }
+    }
+  }
